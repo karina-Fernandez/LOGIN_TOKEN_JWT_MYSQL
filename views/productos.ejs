@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Electro - Bienvenido</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .product-card img {
+      object-fit: cover;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-4">
+    <header class="mb-4 text-center">
+      <h1 class="display-5 fw-bold">Electro 🛒</h1>
+      <p class="text-muted">Los mejores productos tecnológicos para ti</p>
+      <hr>
+      <p class="text-end">Hola, <strong><%= user.name %></strong></p>
+    </header>
+
+    <div class="row">
+      <% const productos = [
+        { nombre: "Laptop HP", imagen: "/img/hp_laptop.jpg", precio: "$890" },
+        { nombre: "Mouse Logitech", imagen: "/img/mouse.jpg", precio: "$25" }
+      ]; %>
+
+      <% productos.forEach(p => { %>
+        <div class="col-md-6 mb-4">
+          <div class="card product-card shadow">
+            <img src="<%= p.imagen %>" class="card-img-top" alt="<%= p.nombre %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= p.nombre %></h5>
+              <p class="card-text text-success fs-5 fw-bold"><%= p.precio %></p>
+              <a href="#" class="btn btn-primary">Agregar al carrito</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</body>
+</html>

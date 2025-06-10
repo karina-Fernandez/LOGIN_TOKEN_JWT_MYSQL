@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.87.0">
+    <title>Login token</title>
+
+    <!-- ✅ Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- 🎨 Estilos personalizados -->
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- 📄 Hoja de estilos del dashboard -->
+    <link href="css/dashboard.css" rel="stylesheet">
+  </head>
+
+  <body>
+    
+<!-- 🔷 Barra de navegación superior -->
+<header class="navbar navbar-dark sticky-top bg-primary flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Compañia de Prueba</a>
+  
+  <!-- Botón colapsable para pantallas pequeñas -->
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Botón de logout -->
+  <div class="navbar-nav">
+    <div class="nav-item text-nowrap">
+      <a type="button" class="px-3 btn btn-danger" href="logout">Logout</a>
+    </div>
+  </div>
+</header>
+
+<!-- 🔹 Estructura principal de la página -->
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- 📚 Sidebar lateral izquierda -->
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-primary sidebar collapse">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="">
+              <span data-feather="home"></span> Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file"></span> Ordenes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/productos">
+              <span data-feather="shopping-cart"></span> Productos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="users"></span> Clientes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="bar-chart-2"></span> Reportes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="layers"></span> Integraciones
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- 📌 Contenido principal del dashboard -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2>Dashboard</h2>
+        <h2>Bienvenido:
+          <% if (user) { %>
+            <span class="badge bg-success"><%= user.name %></span> <!-- Nombre dinámico del usuario -->
+          <% } %>
+        </h2>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+<!-- 📦 Scripts de Bootstrap, Feather Icons y Chart.js -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+<script src="dashboard.js"></script>
+
+<!-- ✅ Activación de los íconos Feather -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    feather.replace(); // Reemplaza los <span data-feather="..."> por SVGs
+  });
+</script>
+
+</body>
+</html>
